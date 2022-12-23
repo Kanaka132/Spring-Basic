@@ -36,12 +36,12 @@ public class BookController<Public> {
 	        service.deleteBook(bookId);
 	        return new ResponseEntity<>(new ApiResponse("book details has been removed successfully", true), HttpStatus.OK);
 	    }
-	  @GetMapping("/search")
-	  public ResponseEntity<List<Book>> searchForAbook(@RequestParam( "name")String name){
-	        return ResponseEntity.ok(service.searchForAbook(name));
-	    }
-
-	
+//	  @GetMapping("/search")
+//	  public ResponseEntity<List<Book>> searchForAbook(@RequestParam( "name")String name){
+//	        return ResponseEntity.ok(service.searchForAbook(name));
+//	    }
+//
+//	
 	
 
 }

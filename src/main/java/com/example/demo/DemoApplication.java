@@ -19,8 +19,8 @@ public class DemoApplication {
 //		return new ModelMapper();
 //	}
 
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
+//	@Bean
+//	public RestTemplate restTemplate(){
+//		return new RestTemplate();
+//	}
 }

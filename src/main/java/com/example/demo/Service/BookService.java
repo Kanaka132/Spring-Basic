@@ -9,5 +9,5 @@ public interface BookService {
 	Book addBook(Book book) ;
 	Book editBook(Book book,long bookId);
 	void deleteBook(long bookId) ;
-	List<Book> searchForAbook(String name);
+//	List<Book> searchForAbook(String name);
 }

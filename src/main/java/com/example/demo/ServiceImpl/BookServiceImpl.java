@@ -44,14 +44,14 @@ public class BookServiceImpl implements BookService {
 	}
 
 
-	@Override
-	public List<Book> searchForAbook(String name) {
-		// TODO Auto-generated method stub
-		 List<Book> books = bookRepository.searchForAbook(name);
-	        if(books.isEmpty()){
-	            throw new ResourceNotFoundException("Books not found");
-	        }
-	        return books;
-	}
+//	@Override
+//	public List<Book> searchForAbook(String name) {
+//		// TODO Auto-generated method stub
+//		 List<Book> books = bookRepository.searchForAbook(name);
+//	        if(books.isEmpty()){
+//	            throw new ResourceNotFoundException("Books not found");
+//	        }
+//	        return books;
+//	}
 
 }
