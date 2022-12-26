@@ -1,5 +1,6 @@
 package com.example.demo.Entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -22,8 +23,8 @@ public class BookHistory {
 	private long bookId;
 	private long customerId;
 	
-	private Date bookReservationDate;
-	private Date bookEndDate;
+	private LocalDate bookReservationDate;
+	private LocalDate bookEndDate;
 	private String bookReturnStatus;
 	
 	

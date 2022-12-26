@@ -1,5 +1,7 @@
 package com.example.demo.Service;
 
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -13,5 +15,7 @@ public interface CustomerService {
 	
 	List<Book> searchForAbook(String name);
 	
-	BookHistory reserveBook(long bookId,long CustomerId,Date bookReservationDate,Date bookEndDate);
+	Book getAllBooks(long bookId);
+	
+	BookHistory reserveBook(long bookId,long CustomerId,LocalDate bookReservationDate,LocalDate bookEndDate);
 }

@@ -1,5 +1,6 @@
 package com.example.demo.ServiceImpl;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -44,10 +45,13 @@ public class CustomerServiceImpl implements CustomerService{
 		return books;
 	}
 
+	
+
 	@Override
-	public BookHistory reserveBook(long bookId, long CustomerId,Date bookReservationDate,Date bookEndDate) {
+	public BookHistory reserveBook(long bookId, long CustomerId, LocalDate bookReservationDate, LocalDate bookEndDate) {
+		// TODO Auto-generated method stub
 		Customer customer = cRepo.findById(CustomerId).get();
-		BookHistory bHistory=null;
+		BookHistory bHistory=new BookHistory();
 		bHistory.setBookId(bookId);
 	    bHistory.setCustomerId(CustomerId);
 	    bHistory.setBookReservationDate(bookReservationDate);
@@ -56,7 +60,17 @@ public class CustomerServiceImpl implements CustomerService{
 		customer.getBookHistory().add(bHistory);
 		cRepo.save(customer);
 		return bHistory;
+		
 	}
 
+
+	@Override
+	public Book getAllBooks(long bookId) {
+		Book book = bRepo.findById(bookId).orElseThrow(() -> new ResourceNotFoundException("book not found with book id:" + bookId));
+		return book;
+	}
+
+
+	
 	
 }

@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entities.Book;
+import com.example.demo.Entities.BookHistory;
 import com.example.demo.Entities.Customer;
 import com.example.demo.Service.CustomerService;
 
@@ -35,12 +37,14 @@ public class CustomerController {
 		return ResponseEntity.ok(cService.searchForAbook(name));
 	}
 
-	@PostMapping("/reservebook/{bookId}/{customerId}")
-	public ResponseEntity<?> reserveBook(@PathVariable(value = "bookId") long bookId,
-			@PathVariable(value = "customerId") long customerId, @RequestBody Date bookReservationDate,
-			@RequestBody Date bookEndDate) {
-		return new ResponseEntity<>(cService.reserveBook(bookId, customerId, bookReservationDate, bookEndDate),
-				HttpStatus.CREATED);
+	@PostMapping("/reservebook")
+	public ResponseEntity<?> reserveBook(@RequestBody BookHistory bookHistory) {
+		return new ResponseEntity<>(cService.reserveBook(bookHistory.getBookId(), bookHistory.getCustomerId(), bookHistory.getBookReservationDate(), bookHistory.getBookEndDate()),HttpStatus.CREATED);
+
+	@GetMapping("/book/{bookId}") ResponseEntity<List<Book>> getAllBooks(@RequestParam("bookId")){
+		return new ResponseEntity<>(cService.getAllBooks(bookId),HttpStatus.OK);
+		
+	}
 	}
 
 }
